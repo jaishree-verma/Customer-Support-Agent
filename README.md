@@ -250,3 +250,10 @@ Open `http://localhost:3000` in your web browser.
 - Multi-Tenant Vector Indexing: Tenant isolation and access control lists (ACLs) for enterprise multi-team document separation.
 - Real-Time Token Streaming: Direct token-by-token streaming from Gemini models into the SSE event stream for lower initial token latency.
 - External Tool Integration: Connecting web search APIs and ticketing systems (Zendesk, Jira) for out-of-knowledge-base queries.
+  Query Refinement Agent: Introduce an agent that refines sub-queries based on evaluator feedback before re-attempting retrieval.
+- Human-in-the-Loop: Implement a mechanism to allow human intervention when the agent gets stuck or identifies an unanswerable query.
+- Tool Use: Integrate external tools (e.g., web search for out-of-knowledge-base queries, calculators).
+- Chat Interface: Build a simple web UI (e.g., with Streamlit or Flask) to interact with the agent.
+- Evaluation Metrics: Add automated evaluation to measure the quality of retrieved chunks and generated answers.
+- Heterogeneous Data Sources: Expand to retrieve from multiple types of databases or APIs.
+
