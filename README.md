@@ -61,6 +61,9 @@ Key benefits include:
 - Lower Escalation Costs: Resolving complex multi-part queries automatically reduces support ticket volume and human agent intervention costs.
 
 ---
+## Architecture 
+
+![RAG Agent Architecture Diagram](images/output.png)
 
 ## System Architecture
 
