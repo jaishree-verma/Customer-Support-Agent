@@ -61,6 +61,24 @@ Key benefits include:
 - Lower Escalation Costs: Resolving complex multi-part queries automatically reduces support ticket volume and human agent intervention costs.
 
 ---
+## Features
+The RAG agent is structured into several interconnected phases, each handled by specialized "agent nodes":
+
+### Knowledge Base Construction (Phase 1)
+- **Document Loading:** Supports various document types (PDF, Markdown, Text).
+- **Text Chunking:** Divides documents into manageable segments.
+- **Embedding Generation:** Converts text chunks into vector embeddings using GoogleGenerativeAIEmbeddings.
+- **Vector Database Storage:** Stores chunks and their embeddings in a persistent ChromaDB instance locally.
+
+### Multi-Step Query Decomposition & Research Orchestration (Phase 3)
+- **Research Agent:** Breaks down a complex user query into smaller, more focused sub-queries using Gemini. It also manages the processing flow for each sub-query.
+- **Supervisor Agent:** Acts as the central orchestrator, directing the flow between different agent nodes based on the current state and task at hand.
+
+### Intelligent Information Retrieval & Self-Correction (Phase 2)
+- **Retriever Agent:** Fetches the most relevant document chunks from ChromaDB for a given sub-query. Configurable to return top-K results.
+- **Evaluator Agent:** Utilizes Gemini to assess the sufficiency and relevance of the retrieved chunks to answer the `current_sub_query`.
+- **Self-Correction Loop:** If retrieved information is deemed insufficient, the Evaluator provides feedback (e.g., "try more specific keywords"), and the agent can re-attempt retrieval for the same sub-query, up to a defined maximum number of attempts.
+
 ## Architecture 
 
 ![RAG Agent Architecture Diagram](images/output.png)
